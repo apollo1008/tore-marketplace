@@ -2,7 +2,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -18,16 +18,15 @@ import { Loader2 } from 'lucide-react';
 
 export default function CreateListingPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [imageUrl, setImageUrl] = useState('');
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
+  const [category, setCategory] = useState('');
   const [location, setLocation] = useState('');
   const [price, setPrice] = useState('');
   const [email, setEmail] = useState('');
-  const [category, setCategory] = useState(searchParams.get('type') || '');
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
